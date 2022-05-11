@@ -37,12 +37,12 @@ public class Reorder_Page extends BasePage {
 	
 	@FindBy(xpath="(//input[@id='id-items0sku'])[1]") WebElement Product_input;
 	
-	@FindBy(xpath="(//div[@class='action'])[1]") WebElement First_List_View;
+	@FindBy(xpath="(//a[text()[normalize-space()='View']])[1]") WebElement First_List_View;
 	
 	@FindBy(xpath="(//button[@title='Add All Items To Cart'])[1]") WebElement Add_All_Items_btn;
 	
-	@FindBy(xpath = "//div[contains(text(),'Items have been successfully added to your Cart')]") WebElement Success_msg;
-	
+	@FindBy(xpath = "//p[text()=' Items have been successfully added to your Cart']") WebElement Success_msg;
+//	@FindBy(xpath = "//div[@id='modal-content-44']//div[1]") WebElement Success_msg;
 	@FindBy(css = "body > div.swal2-container.swal2-center.swal2-fade.swal2-shown > div > div.swal2-header > button") WebElement Pop_close;
 	@FindBy(css ="body > div.modals-wrapper > aside.modal-popup.message-modal-container._show > div.modal-inner-wrap > header > button") WebElement close;
 	
@@ -62,7 +62,7 @@ public class Reorder_Page extends BasePage {
 		 Uploadcsv.click();
 		Thread.sleep(3000);
 		
-		File.sendKeys(prop.getProperty("valid_csvfile"));
+		File.sendKeys(System.getProperty("user.dir") + prop.getProperty("valid_csvfile"));
 
 		
 		
@@ -81,8 +81,8 @@ public class Reorder_Page extends BasePage {
 			 Thread.sleep(5000);
 			 Uploadcsv.click();
 			Thread.sleep(3000);
-			
-			File.sendKeys(prop.getProperty("Invalid_csvfile"));
+			File.sendKeys(System.getProperty("user.dir") + prop.getProperty("Invalid_csvfile"));
+//			File.sendKeys(prop.getProperty("Invalid_csvfile"));
 
 			
 			
@@ -147,19 +147,21 @@ public  void EnterProduct() throws InterruptedException
 {
 	 Product_input.sendKeys(prop.getProperty("KeywordSearch"));
 
-		Thread.sleep(8000);
-		WebElement Item=driver.findElement(By.xpath("/html/body/div[1]/main/div[2]/div/div[1]/div[2]/form/div[4]/fieldset/div[2]/div/ul[1]/li[1]/a"));
-		 WebDriverWait wait = new WebDriverWait(driver, 2000);
+		Thread.sleep(5000);
+//		WebElement Item=driver.findElement(By.xpath("/html/body/div[1]/main/div[2]/div/div[1]/div[2]/form/div[4]/fieldset/div[2]/div/ul[1]/li[1]/a"));
+		WebElement Item=driver.findElement(By.xpath("(//li[@class='ui-menu-item']//span)[1]"));	
+		WebDriverWait wait = new WebDriverWait(driver, 2000);
 			wait.until(ExpectedConditions.visibilityOf(Item));
 			Item.click();
 		Thread.sleep(1000);
 	
 }
 
-public  void View_Click() 
+public  WebElement  View_Click() 
 
 {
 	First_List_View.click();
+	return First_List_View;
 }
 
 public  WebElement Add_All_Items() 

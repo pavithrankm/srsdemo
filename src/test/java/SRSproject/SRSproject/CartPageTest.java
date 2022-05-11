@@ -65,10 +65,10 @@ public class CartPageTest  extends BaseTest
 	
 		String price_pdp=	Cp.validatePriceOfItemInPDP();
 		
-		Thread.sleep(500);
+		Thread.sleep(5000);
 		driver.navigate().back();
 		
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		
 		Float price2=Float.parseFloat(price_pdp);
 		
@@ -168,25 +168,31 @@ float MultipliedPrice= ActualPrice * quantity;
 	public void AddItemToCart_Validation() throws Exception
 
 	{
+		Thread.sleep(10000);
 		WebElement SearchField = Cp.Searcfield();
-//		waitUntilElementVisibility(SearchField);
-//		SearchField.click();
-		waitUntilElementVisibility(SearchField);
+		 Thread.sleep(5000);
+		SearchField.click();
 		SearchField.sendKeys(prop.getProperty("KeywordSearch"));
-		 Thread.sleep(10000);
+		 Thread.sleep(8000);
 		List <WebElement>  listele1= driver.findElements(By.xpath("//li[@class='ui-menu-item']"));
 		
 		 
-//		listele1.size();
+		listele1.size();
 		
-		
+		 Thread.sleep(5000);
 		 WebDriverWait wait= new WebDriverWait(driver, 80);
+		
 		 wait.until(ExpectedConditions.visibilityOf(listele1.get(1)));
 		listele1.get(1).click();
 		
 		
 		Cp.AddToCart().click();
-		Reporter.log("Able to Add items by searching them ",true);
+		
+		String a = SearchField.getText();
+		System.out.print(a);
+		String b="";
+		
+		Assert.assertEquals(b, a);
 		
 		
 		
@@ -199,11 +205,12 @@ float MultipliedPrice= ActualPrice * quantity;
 	{
 		Thread.sleep(9000);
 	Cp.ReOrderSelection();
-	Thread.sleep(3000);
+	Thread.sleep(8000);
 	String msg= Cp.Message();
 	System.out.println(msg);
 	String ReorderItemCount=msg.replaceAll("[^\\d]", "");
-	
+//	 String items =  driver.findElement(By.xpath("//span[text()='27 Items']")).getText();
+//	 System.out.println(items);
 	//System.out.println(ReorderItemCount);
 	
 	 Cp.ClickAddToReorder();
@@ -218,6 +225,10 @@ float MultipliedPrice= ActualPrice * quantity;
 		    	Reporter.log("Items are added from cart to Reorder List selected" , true);
 		    	Thread.sleep(3000);
 		    	Cp.KeepShopping().click();
+		    	
+//		    	Cp.viewcart().click();
+		    	
+		    	
 		    }
 		    else
 		    {

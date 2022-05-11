@@ -41,7 +41,7 @@ public class LoginTest extends BaseTest {
 
 		// Object exp1 = prop.get("PCSLoginPageURL");
 		// Object exp2 = prop.get("PCSLoginPagePoolURL");
-		Assert.assertEquals(URL, prop.get("Homepage_url"));
+		Assert.assertEquals(URL, prop.get("Homepage_logurl"));
 		Hp.confirmLogin(); 
 		// assertTrue(FIS_URL.equals(exp1) || FIS_URL.equals(exp2));
 
@@ -65,12 +65,12 @@ public class LoginTest extends BaseTest {
 
 		//driver.close();
 	}
-	@Test(priority = 1)
+	@Test(priority = 1,enabled = false)
 	public void LoginFromPLP() throws Exception {
 //		
 		BasePage.initializtion();
 		Thread.sleep(5000);
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 1; i++) {
 			
 		
 		HomePage hp= new HomePage(driver);
@@ -87,12 +87,12 @@ public class LoginTest extends BaseTest {
 		hp.SignOut();
 		}
 		}
-	@Test(priority = 2)
+	@Test(priority = 2,enabled = false)
 	public void LoginFromPDP() throws Exception {
 //		
 		BasePage.initializtion();
 		Thread.sleep(5000);
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 1; i++) {
 			
 		
 		HomePage hp= new HomePage(driver);

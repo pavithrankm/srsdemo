@@ -68,7 +68,7 @@ public class CheckoutPageTest extends BaseTest {
 		
 		COp.Branch_Selection();
 		
-		Thread.sleep(1000);
+	
 		COp.PO_Number();
 		COp.Ordernotes();
 		COp.RequestedDate();
@@ -141,13 +141,7 @@ public class CheckoutPageTest extends BaseTest {
 			System.out.println("Item in Cart Page"+ MyList);
 			System.out.println("Item in Checkout Page"+ a2);
 			Reporter.log("Not all item from cart are added to checkout page ",true);
-		}
-		
-		
-		
-		
-		
-	}
+		}}
 	
 	/*@Test(priority=4,  description= "Placing Order validation")
 	public void OrderPlacement_Validation() throws InterruptedException 

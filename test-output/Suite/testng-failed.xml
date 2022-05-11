@@ -6,12 +6,18 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="SRSproject.SRSproject.LoginMultiple">
+      <class name="SRSproject.SRSproject.ReorderPage_Test">
         <methods>
-          <include name="LoginMultipleTimes"/>
+          <include name="setUp"/>
+          <include name="InvalidFile_Validation"/>
+        </methods>
+      </class> <!-- SRSproject.SRSproject.ReorderPage_Test -->
+      <class name="SRSproject.SRSproject.BulkOrderPadTest">
+        <methods>
+          <include name="InValid_FileUpload_Validation"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- SRSproject.SRSproject.LoginMultiple -->
+      </class> <!-- SRSproject.SRSproject.BulkOrderPadTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -90,26 +90,26 @@ public class QuickOrderPadPage extends BasePage{
 
 		 Thread.sleep(3000);
 		QuickOrderPad.click();
-		 Thread.sleep(1000);
+		 Thread.sleep(2000);
 
 		List <WebElement>  listele= driver.findElements(By.xpath("//input[@class='amqorder-input -search']"));
 			
 
 	    listele.size();
 			 
-	    Thread.sleep(900);
+	    Thread.sleep(1000);
 			
 
 		listele.get(0).click();
 		listele.get(0).sendKeys(prop.getProperty("ValidProductSKU"));
 		QuickOrderPad.click();
-		Thread.sleep(11000);
+		Thread.sleep(4000);
 		
 		List <WebElement>  listele1= driver.findElements(By.xpath("//span[@class='amqorder-name']"));
 		 
 		listele1.size();
 		
-		Thread.sleep(11000);
+		Thread.sleep(8000);
 		listele1.get(0).click();
 		
 		 Thread.sleep(4000);
@@ -138,7 +138,8 @@ public class QuickOrderPadPage extends BasePage{
 		uploadfile.click();
 		 Thread.sleep(1000);
 //		file.sendKeys("C:\\Users\\DELL\\Downloads\\Tester2.csv");
-		file.sendKeys(prop.getProperty("valid_csvfile"));
+//		file.sendKeys(prop.getProperty("valid_csvfile"));
+		file .sendKeys(System.getProperty("user.dir") + prop.getProperty("valid_csvfile"));
 
 		
 		
@@ -158,13 +159,15 @@ public class QuickOrderPadPage extends BasePage{
 			 js.executeScript("arguments[0].scrollIntoView();", HomeLink);
 		
 
-			 Thread.sleep(10000);
+			 Thread.sleep(5000);
 			QuickOrderPad.click();
 			Thread.sleep(3000);
 			uploadfile.click();
 			 Thread.sleep(1000);
 			//file.sendKeys("C:\\Users\\DCKAP\\Downloads\\Invalidfile1.csv");
-			file.sendKeys(prop.getProperty("Invalid_csvfile"));
+			 file .sendKeys(System.getProperty("user.dir") + prop.getProperty("Invalid_csvfile"));
+
+//			file.sendKeys(prop.getProperty("Invalid_csvfile"));
 			
 			// js.executeScript("arguments[0].scrollIntoView();", file);
 			Thread.sleep(3000);
@@ -178,10 +181,10 @@ public class QuickOrderPadPage extends BasePage{
 		
 	    String	ProductNotExistMsg=ProductNotExistCount.getText();
 
-			Thread.sleep(4000);
+			Thread.sleep(3000);
 			
 			//WebDriverWait wait= new WebDriverWait(driver, 60);
-			wait.until(ExpectedConditions.visibilityOf(Accept));
+//			wait.until(ExpectedConditions.visibilityOf(Accept));
 
 	
 			Accept.click();
@@ -192,10 +195,8 @@ public class QuickOrderPadPage extends BasePage{
 	public  List<String> ReadfileData() throws InterruptedException, CsvValidationException, IOException
 	
 	{
-//	String file = "C:\\Users\\DELL\\Tester3.csv"; //qps
-//		String file ="C:\\Users\\DELL\\Downloads\\Tester2.csv"; // Aqua
-	 String file = "C:\\Users\\DELL\\Tester1.csv"; //pcs
-		
+//		 file .sendKeys(System.getProperty("user.dir") + prop.getProperty("Invalid_csvfile"));
+	 String file = System.getProperty("user.dir") + prop.getProperty("valid_csvfile");
 		 
 		 
 	       String delimiter = ",";

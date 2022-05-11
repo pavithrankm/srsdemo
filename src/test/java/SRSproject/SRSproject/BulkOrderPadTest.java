@@ -32,6 +32,7 @@ public class BulkOrderPadTest extends BaseTest {
 		
 		LoginPage Lp = new LoginPage(driver);
 		Lp.ValidLogin();
+		Thread.sleep(8000);
 		Bp= new BulkOrderPage(driver);
 		String BulkOrderTitle= Bp.BulkOrderPadClick();
 		Assert.assertEquals(BulkOrderTitle, Constants.BulkOrderTitle);
@@ -99,9 +100,9 @@ public class BulkOrderPadTest extends BaseTest {
 			
 			
 			@Test(priority=6)
-			public void ListofItem_Validation() throws InterruptedException, CsvValidationException, IOException 
+			public void ListofItem_Validation() throws Exception 
 			{
-				Thread.sleep(5000);
+				Thread.sleep(8000);
 				
 				
 						Bp.Fileupload();

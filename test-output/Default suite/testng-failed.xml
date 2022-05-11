@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="SRSproject.SRSproject.ProductListPageTest">
+      <class name="SRSproject.SRSproject.Invoice">
         <methods>
           <include name="setUp"/>
-          <include name="PLP_RegisterRedirection_GuestValidation"/>
+          <include name="invoices"/>
         </methods>
-      </class> <!-- SRSproject.SRSproject.ProductListPageTest -->
+      </class> <!-- SRSproject.SRSproject.Invoice -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

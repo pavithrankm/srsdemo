@@ -60,12 +60,13 @@ public class CompanyUserTest extends BaseTest {
 
 	@Test(priority = 1)
 	public void AddNewUserRole() throws InterruptedException, IOException {
-// BasePage.initializtion();
+ BasePage.initializtion();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Hp = new HomePage(driver);
 		Hp.ValidLogin();
 		Thread.sleep(5000);
 		Hp.Account_Hover();
+		Thread.sleep(2000);
 		Hp.ClickUserManagement();
 		Thread.sleep(5000);
 		CUpg = new CompanyUsersPage(driver);
